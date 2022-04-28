@@ -46,14 +46,9 @@ const ItemCount = (props) => {
 
     return (
         <>
-            <div className="card w-96 bg-base-100 shadow-xl mx-auto">
-                <figure>
-                    <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" />
-                </figure>
-                <div className="card-body items-center text-center">
-                    <h2 className="card-title text-2xl">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <p className="text-red-400 text-sm">{stockMsg}</p>
+            <div>
+                <p className="text-red-400 text-sm">{stockMsg}</p>
+                <div className="card-actions justify-center">
                     <div className="my-2 flex content-center">
                         <button onClick={subItem} className="btn btn-circle btn-outline btn-sm" disabled={ableBtnSub}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12L18 12" /></svg>
@@ -63,9 +58,9 @@ const ItemCount = (props) => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12L18 12M12 6L12 18" /></svg>
                         </button>
                     </div>
-                    <div className="card-actions justify-center">
-                        <button onClick={() => {props.fn(count)}} className="btn btn-outline gap-2" disabled={ableBtnSub}>Agregar al Carrito</button>
-                    </div>
+                </div>
+                <div className="card-actions justify-center">
+                    <button onClick={() => {props.fn(count)}} className="btn btn-outline gap-2" disabled={ableBtnSub}>Agregar al Carrito</button>
                 </div>
             </div>
         </>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ItemCount from "./ItemCount"
+import ItemList from "./ItemList";
 
 const ItemListContainer = (props) => {
   const [stock, setStock] = useState(Math.floor(Math.random() * 30));
@@ -8,8 +9,12 @@ const ItemListContainer = (props) => {
 
   return (
     <>
-      <div>{props.text}</div>
-      <ItemCount stock={stock} initial={init} fn={onAdd}/>
+      <div className="p-3">
+        <div className="grid grid-cols-3 gap-5">
+          <ItemList></ItemList>
+          {/* <ItemCount stock={stock} initial={init} fn={onAdd}/> */}
+        </div>
+      </div>
     </>
   )
 }
