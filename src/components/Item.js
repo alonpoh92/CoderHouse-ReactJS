@@ -4,6 +4,7 @@ const Item = ({item}) => {
     const [stockMsg, setStockMsg] = useState("");
     const [stockColor, setStockColor] = useState("");
 
+    console.log(item)
     useEffect(() => {
         if(item.stock > 0){
             setStockMsg(`${item.stock} available`);
@@ -22,7 +23,7 @@ const Item = ({item}) => {
 
     return (
         <>
-            <div className="card w-full bg-base-100 shadow-xl -z-10">
+            <div className="card w-full bg-base-100 shadow-xl">
                 <figure style={{height: 150}}>
                     <img className="object-cover h-full w-full" src={item.thumbnail} alt={item.title} />
                 </figure>

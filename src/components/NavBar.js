@@ -14,7 +14,7 @@ const NavBar = () => {
                 Tecnología
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
-              <ul className="p-2 bg-stone-500">
+              <ul className="p-2 bg-stone-500 z-10">
                 <li><a>Celulares</a></li>
                 <li><a>Laptops</a></li>
               </ul>
@@ -24,7 +24,7 @@ const NavBar = () => {
                 Belleza
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
-              <ul className="p-2 bg-stone-500">
+              <ul className="p-2 bg-stone-500 z-10">
                 <li><a>Fragancias</a></li>
                 <li><a>Skincare</a></li>
               </ul>
@@ -34,7 +34,7 @@ const NavBar = () => {
                 Hogar
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
-              <ul className="p-2 bg-stone-500">
+              <ul className="p-2 bg-stone-500 z-10">
                 <li><a>Decoración</a></li>
                 <li><a>Muebles</a></li>
                 <li><a>Iluminación</a></li>
@@ -45,7 +45,7 @@ const NavBar = () => {
                 Ropa
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
-              <ul className="p-2 bg-stone-500">
+              <ul className="p-2 bg-stone-500 z-10">
                 <li><a>Camisetas</a></li>
                 <li><a>Gafas</a></li>
                 <li><a>Hombre-Camisetas</a></li>
