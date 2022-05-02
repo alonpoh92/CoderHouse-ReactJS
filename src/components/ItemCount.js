@@ -12,7 +12,7 @@ const ItemCount = (props) => {
         }else{
             setStockMsg(`Solo ${props.stock} en stock!!!`);
         }
-    }, [])
+    }, [props.stock])
 
     useEffect(() => {
       validateBtnStatus();

@@ -4,58 +4,68 @@ const NavBar = () => {
   return (
     <div className="navbar bg-stone-400">
         <div className="flex-initial">
-          <a className="btn btn-ghost normal-case text-xl text-gray-200">Mi Tiendita</a>
+          <a className="btn btn-ghost normal-case text-xl text-gray-200">My Store</a>
         </div>
         <div className="flex-1">
           <ul className="menu menu-horizontal p-0 text-gray-200 mx-auto">
-            <li><a>Comida</a></li>
+            <li><a>Groceries</a></li>
             <li tabIndex="0">
               <a>
-                Tecnología
+                Technology
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
               <ul className="p-2 bg-stone-500 z-10">
-                <li><a>Celulares</a></li>
+                <li><a>Smartphones</a></li>
                 <li><a>Laptops</a></li>
               </ul>
             </li>
             <li tabIndex="0">
               <a>
-                Belleza
+                Beauty
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
               <ul className="p-2 bg-stone-500 z-10">
-                <li><a>Fragancias</a></li>
+                <li><a>Fragances</a></li>
                 <li><a>Skincare</a></li>
               </ul>
             </li>
             <li tabIndex="0">
               <a>
-                Hogar
+                Home
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
               <ul className="p-2 bg-stone-500 z-10">
-                <li><a>Decoración</a></li>
-                <li><a>Muebles</a></li>
-                <li><a>Iluminación</a></li>
+                <li><a>decoration</a></li>
+                <li><a>Furniture</a></li>
+                <li><a>Lighting</a></li>
               </ul>
             </li>
             <li tabIndex="0">
               <a>
-                Ropa
+                Clothes
                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
               <ul className="p-2 bg-stone-500 z-10">
-                <li><a>Camisetas</a></li>
-                <li><a>Gafas</a></li>
-                <li><a>Hombre-Camisetas</a></li>
-                <li><a>Hombre-Zapatos</a></li>
-                <li><a>Hombre-Relojes</a></li>
-                <li><a>Mujer-Vestidos</a></li>
-                <li><a>Mujer-Zapatos</a></li>
-                <li><a>Mujer-Relojes</a></li>
-                <li><a>Mujer-Maletas</a></li>
-                <li><a>Mujer-Joyería</a></li>
+                <li><a>Tops</a></li>
+                <li><a>Sunglasses</a></li>
+                <li><a>Mens-Shirts</a></li>
+                <li><a>Mens-Shoes</a></li>
+                <li><a>Mens-Watches</a></li>
+                <li><a>Womens-Dresses</a></li>
+                <li><a>Womens-Shoes</a></li>
+                <li><a>Womens-Watches</a></li>
+                <li><a>Womens-Bags</a></li>
+                <li><a>Womens-Jewellery</a></li>
+              </ul>
+            </li>
+            <li tabIndex="0">
+              <a>
+                Auto
+                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+              </a>
+              <ul className="p-2 bg-stone-500 z-10">
+                <li><a>Automotive</a></li>
+                <li><a>Motorcycle</a></li>
               </ul>
             </li>
           </ul>

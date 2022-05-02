@@ -4,7 +4,6 @@ const Item = ({item}) => {
     const [stockMsg, setStockMsg] = useState("");
     const [stockColor, setStockColor] = useState("");
 
-    console.log(item)
     useEffect(() => {
         if(item.stock > 0){
             setStockMsg(`${item.stock} available`);
@@ -18,8 +17,6 @@ const Item = ({item}) => {
             setStockColor("text-red-300 flex justify-center items-end mt-2");
         }    
     }, [])
-
-
 
     return (
         <>
