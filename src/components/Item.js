@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Item = ({item}) => {
     const [stockMsg, setStockMsg] = useState("");
@@ -13,7 +14,7 @@ const Item = ({item}) => {
                 setStockColor("text-orange-300 flex justify-center items-end mt-2");
             }
         }else{
-            setStockMsg(`unavailable`);
+            setStockMsg(`Unavailable`);
             setStockColor("text-red-300 flex justify-center items-end mt-2");
         }    
     }, [])
@@ -26,13 +27,13 @@ const Item = ({item}) => {
                 </figure>
                 <div className="card-body">
                     <div>
-                        <h2 className="card-title justify-center mb-1">{item.title}</h2>
+                        <h2 className="card-title justify-center mb-1 capitalize">{item.title.toLowerCase()}</h2>
                         <p className="text-left">{item.description}</p>
                     </div>
                     <p className={stockColor}>{stockMsg}</p>
                     <div className="card-actions justify-end items-center  mb-2">
                         <p className="text-gray-700 text-2xl font-semibold">${item.price}</p>
-                        <button className="btn btn-outline">Show More</button>
+                        <Link to={`/item/${item.id}`}><button className="btn btn-outline">Show More</button></Link>
                     </div>
                 </div>
             </div>

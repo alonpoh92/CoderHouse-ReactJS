@@ -8,9 +8,9 @@ const ItemCount = (props) => {
 
     useEffect(() => {
         if(props.stock == 0){
-            setStockMsg("Sin Stock");
+            setStockMsg("Unavailable");
         }else{
-            setStockMsg(`Solo ${props.stock} en stock!!!`);
+            setStockMsg(`Just ${props.stock} available!!!`);
         }
     }, [props.stock])
 
@@ -60,7 +60,7 @@ const ItemCount = (props) => {
                     </div>
                 </div>
                 <div className="card-actions justify-center">
-                    <button onClick={() => {props.fn(count)}} className="btn btn-outline gap-2" disabled={ableBtnSub}>Agregar al Carrito</button>
+                    <button onClick={() => {props.fn(count)}} className="btn btn-outline gap-2" disabled={ableBtnSub}>Add to Cart</button>
                 </div>
             </div>
         </>

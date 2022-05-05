@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
+    const {id} = useParams();
+
     const [item, setItem] = useState([])
 
     useEffect(() => {
       getItem()
-    }, [])    
+    }, [id])    
 
     const getItem = () => {
-        const url = `https://dummyjson.com/products/${Math.floor(Math.random() * 98)+1}`;
+        const url = `https://dummyjson.com/products/${id}`;
         fetch(`${url}`)
             .then((res) => {
                 return res.json();

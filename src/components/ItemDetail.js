@@ -4,6 +4,7 @@ import ItemRatingContainer from "./ItemRatingContainer";
 
 const ItemDetail = ({item}) => {
     const [bigImg, setBigImg] = useState(item.images[0]); 
+    const onAdd = (val) => {alert(`Se han agregado ${val} items`)};
 
     return (
         <>  
@@ -37,7 +38,7 @@ const ItemDetail = ({item}) => {
                         <p>${item.price}</p>
                     </div>
                     <div className="mt-2">
-                        <ItemCount stock={item.stock} initial={0}/>
+                        <ItemCount stock={item.stock} initial={0} fn={onAdd}/>
                     </div>
                 </div>
             </div>
