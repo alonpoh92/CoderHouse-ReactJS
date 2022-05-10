@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const CartWidget = () => {
   return (
     <div className="flex-none">
@@ -13,7 +15,7 @@ const CartWidget = () => {
             <span className="font-bold text-lg">1 Items</span>
             <span className="text-info">Subtotal: $9.99</span>
             <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <Link className="btn btn-primary btn-block" to={"/cart"}>View cart</Link>
             </div>
             </div>
         </div>

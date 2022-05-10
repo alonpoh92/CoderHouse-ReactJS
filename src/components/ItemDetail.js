@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemRatingContainer from "./ItemRatingContainer";
 
 const ItemDetail = ({item}) => {
     const [bigImg, setBigImg] = useState(item.images[0]); 
-    const onAdd = (val) => {alert(`Se han agregado ${val} items`)};
+    const [showCounter, setShowCounter] = useState(true)
+    const onAdd = (val) => {
+        if(val > 0){
+            alert(`Se han agregado ${val} items`);
+            setShowCounter(false);
+        }
+    };
 
     return (
         <>  
@@ -38,7 +44,7 @@ const ItemDetail = ({item}) => {
                         <p>${item.price}</p>
                     </div>
                     <div className="mt-2">
-                        <ItemCount stock={item.stock} initial={0} fn={onAdd}/>
+                        <ItemCount stock={item.stock} initial={0} fn={onAdd} showCounter={showCounter}/>
                     </div>
                 </div>
             </div>
