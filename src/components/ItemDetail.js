@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import ItemRatingContainer from "./ItemRatingContainer";
 
 const ItemDetail = ({item}) => {
+
+    const cartContext = useContext(CartContext);
+
     const [bigImg, setBigImg] = useState(item.images[0]); 
-    const [showCounter, setShowCounter] = useState(true)
-    const onAdd = (val) => {
-        if(val > 0){
-            alert(`Se han agregado ${val} items`);
-            setShowCounter(false);
-        }
-    };
+    const onAdd = cartContext.addItem;
 
     return (
         <>  
@@ -32,7 +30,7 @@ const ItemDetail = ({item}) => {
                 {/* item description */}
                 <div className="col-span-6">
                     <div className="mb-2">
-                        <h2>{item.title}</h2>
+                        <h2 className="font-bold text-2xl">{item.title}</h2>
                     </div>
                     <div className="mb-2">
                         <ItemRatingContainer rating={item.rating}/>
@@ -44,7 +42,7 @@ const ItemDetail = ({item}) => {
                         <p>${item.price}</p>
                     </div>
                     <div className="mt-2">
-                        <ItemCount stock={item.stock} initial={0} fn={onAdd} showCounter={showCounter}/>
+                        <ItemCount item={item} initial={cartContext.getQuantity(item.id)} onAdd={onAdd}/>
                     </div>
                 </div>
             </div>
