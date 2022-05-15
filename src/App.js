@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart';
+import CartContainer from './components/CartContainer';
 import CartProvider from './context/CartProvider';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             <Route path="/category/:category" element={<ItemListContainer/>}/>
             <Route path="/item" element={<ItemListContainer/>}/>
             <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/cart" element={<CartContainer/>}/>
             <Route path="*" element={<ItemListContainer/>}/>
           </Routes>        
         </div>    

@@ -30,7 +30,7 @@ const ItemDetail = ({item}) => {
                 {/* item description */}
                 <div className="col-span-6">
                     <div className="mb-2">
-                        <h2 className="font-bold text-2xl">{item.title}</h2>
+                        <h2 className="font-bold text-2xl capitalize">{item.title.toLowerCase()}</h2>
                     </div>
                     <div className="mb-2">
                         <ItemRatingContainer rating={item.rating}/>
