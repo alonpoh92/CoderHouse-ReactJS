@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
   
@@ -9,19 +10,21 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
   const getItems = () => {
-    let url = ``;
+    const db = getFirestore();
+    const items = [];
     if(category == undefined){
-      url = "https://dummyjson.com/products/?limit=100";
+      const ref = collection(db, 'items');
+      getDocs(ref).then((snapshot) => {
+        snapshot.docs.map(doc => items.push({'id': doc.id, ...doc.data()}));  
+        setItems(items);
+      })
     }else{
-      url = `https://dummyjson.com/products/category/${category}`
+      const ref = query(collection(db, "items"), where("category", "==", category));;
+      getDocs(ref).then((snapshot) => {
+        snapshot.docs.map(doc => items.push({'id': doc.id, ...doc.data()}));
+        setItems(items);
+      });
     }
-    fetch(`${url}`)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            setItems(data.products);
-        })
   };
 
   useEffect(() => {

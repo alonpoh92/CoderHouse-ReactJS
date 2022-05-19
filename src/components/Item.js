@@ -33,7 +33,7 @@ const Item = ({item}) => {
                     <p className={stockColor}>{stockMsg}</p>
                     <div className="card-actions justify-end items-center  mb-2">
                         <p className="text-gray-700 text-2xl font-semibold">${item.price}</p>
-                        <Link to={`/item/${item.id}`}><button className="btn btn-outline">Show More</button></Link>
+                        <Link to={`/item/${item.itemId}`}><button className="btn btn-outline">Show More</button></Link>
                     </div>
                 </div>
             </div>

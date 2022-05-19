@@ -34,7 +34,7 @@ const ItemCount = ({item, initial, onAdd}) => {
                         </div>
                     </div>
                     <div className="card-actions justify-center">
-                        <button onClick={() => {onAdd({id: item.id, name: item.title, price: item.price, img: item.thumbnail, category: item.category, qty: count}); setShowCounter(false)}} className="btn btn-outline gap-2" disabled={count == 0 ? "disabled" : ""}>Add to Cart</button>
+                        <button onClick={() => {onAdd({id: item.itemId, name: item.title, price: item.price, img: item.thumbnail, category: item.category, qty: count}); setShowCounter(false)}} className="btn btn-outline gap-2" disabled={count == 0 ? "disabled" : ""}>Add to Cart</button>
                     </div>
                 </div>
             :
