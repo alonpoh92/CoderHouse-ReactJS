@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
+import LoaderProvider from './context/LoaderProvider';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBREsl1gh4u4Ue5ovRgUCwj9Y24APRf-fk",
@@ -18,7 +19,9 @@ const app = initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LoaderProvider>
+      <App />
+    </LoaderProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

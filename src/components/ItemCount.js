@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 
-const ItemCount = ({item, initial, onAdd}) => {
+const ItemCount = ({item, buyed, initial, onAdd}) => {
     const [count, setCount] = useState(initial);
     const [showCounter, setShowCounter] = useState(true);
 
+    const stock = item.stock - buyed;
+
     const addItem = () => {
-        if(count < item.stock){
+        if(count < stock){
             setCount(count + 1);
         }
     };
@@ -21,14 +23,14 @@ const ItemCount = ({item, initial, onAdd}) => {
         <>
             {showCounter ? 
                 <div>
-                    <p className="text-red-400 text-sm">{item.stock == 0 ? "Unavailable" : `Just ${item.stock} available!!!`}</p>
+                    <p className="text-red-400 text-sm">{stock == 0 ? "Unavailable" : `Just ${stock} available!!!`}</p>
                     <div className="card-actions justify-center">
                         <div className="my-2 flex content-center">
                             <button onClick={subItem} className="btn btn-circle btn-outline btn-sm" disabled={count == 0 ? "disabled" : ""}>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12L18 12" /></svg>
                             </button>
                             <p style={{marginTop:3}} className="mx-3">{count}</p>
-                            <button onClick={addItem} className="btn btn-circle btn-outline btn-sm" disabled={count == item.stock ? "disabled" : ""}>
+                            <button onClick={addItem} className="btn btn-circle btn-outline btn-sm" disabled={count == stock ? "disabled" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12L18 12M12 6L12 18" /></svg>
                             </button>
                         </div>

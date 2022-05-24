@@ -1,50 +1,70 @@
-import { collection, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { collection, getDoc, getDocs, getFirestore, query, where, doc } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { LoaderContext } from "../context/LoaderContext";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
-    const {id} = useParams();
+  const {id} = useParams();
 
-    const [item, setItem] = useState([])
+  const navigate = useNavigate();
 
-    useEffect(() => {
-      getItem()
-    }, [id])    
+  const [item, setItem] = useState([]);
+  const [buyed, setBuyed] = useState(0);
 
-    const getItem = () => {
-      const db = getFirestore();
-      const ref = query(collection(db, "items"), where("itemId", "==", id));
-      const items = [];
-      getDocs(ref).then((snapshot) => {
+  const loader = useContext(LoaderContext)
+
+  useEffect(() => {
+    loader.runLoader();
+    getItem()
+  }, [id])    
+
+  const getItem = () => {
+    const db = getFirestore();
+    const ref = query(collection(db, "items"), where("itemId", "==", id));
+    const items = [];
+    getDocs(ref)
+      .then((snapshot) => {
         if(snapshot.size == 1){
-          snapshot.docs.map(doc => {
+          snapshot.docs.map(document => {
             const ref1 = query(collection(db, "images"), where("itemId", "==", id));
             const images = [];
-            getDocs(ref1).then((snapshot1) => {
-              snapshot1.docs.map(doc => {
-                images.push(doc.data().image);
-              });
-              items.push({'id': doc.id, ...doc.data(), 'images': images});
-              setItem(items);
-            })
+            getDocs(ref1)
+              .then((snapshot1) => {
+                snapshot1.docs.map(document => {
+                  images.push(document.data().image);
+                });
+                items.push({'id': document.id, ...document.data(), 'images': images});
+                setItem(items);
+                
+                const ref2 = collection(db, "orders");
+                const orders = [];
+                getDocs(ref2)
+                  .then((snapshot2) => {
+                    snapshot2.docs.map((document) => {
+                      const items = document.data().items;
+                      for(let x=0; x<items.length; x+=1){
+                        if(items[x].id == id){
+                          orders.push(items[x]);
+                        }
+                      }
+                    });
+                    setBuyed((orders.map(i => i.qty)).reduce((partialSum, a) => partialSum + a, 0));
+                    loader.stopLoader();
+                  });
+              })
           });
         }else{
           setItem([]);
+          navigate('/')
+          loader.stopLoader();
         }
-      });
-        /* const url = `https://dummyjson.com/products/${id}`;
-        fetch(`${url}`)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                setItem([data]);
-            }) */
-    };
+    });
+  };
+  
   return (
     <>
-        {item.map(i => <ItemDetail key={i.id} item={i}></ItemDetail>)}        
+        {item.map(i => <ItemDetail key={i.id} item={i} buyed={buyed}></ItemDetail>)}        
     </>
   )
 }

@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget"
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-stone-400">
+    <div className="navbar bg-stone-400 fixed z-30">
         <div className="flex-initial">
           <Link to={"/"} className="btn btn-ghost normal-case text-xl text-gray-200">My Store</Link>
         </div>

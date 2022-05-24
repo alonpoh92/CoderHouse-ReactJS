@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({item}) => {
+const Item = ({item, orders}) => {  
+    
+    const stock = item.stock - ((orders.map(i => i.qty)).reduce((partialSum, a) => partialSum + a, 0));
     const [stockMsg, setStockMsg] = useState("");
     const [stockColor, setStockColor] = useState("");
 
     useEffect(() => {
-        if(item.stock > 0){
-            setStockMsg(`${item.stock} available`);
-            if(item.stock >= 30){
+        if(stock > 0){
+            setStockMsg(`${stock} available`);
+            if(stock >= 30){
                 setStockColor("text-gray-500 flex justify-center items-end mt-2");
             }else{
                 setStockColor("text-orange-300 flex justify-center items-end mt-2");
@@ -17,7 +19,7 @@ const Item = ({item}) => {
             setStockMsg(`Unavailable`);
             setStockColor("text-red-300 flex justify-center items-end mt-2");
         }    
-    }, [])
+    }, [orders])
 
     return (
         <>

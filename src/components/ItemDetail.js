@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import ItemRatingContainer from "./ItemRatingContainer";
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({item, buyed}) => {
 
     const cartContext = useContext(CartContext);
 
@@ -42,7 +42,7 @@ const ItemDetail = ({item}) => {
                         <p>${item.price}</p>
                     </div>
                     <div className="mt-2">
-                        <ItemCount item={item} initial={cartContext.getQuantity(item.itemId)} onAdd={onAdd}/>
+                        <ItemCount item={item} buyed={buyed} initial={cartContext.getQuantity(item.itemId)} onAdd={onAdd}/>
                     </div>
                 </div>
             </div>

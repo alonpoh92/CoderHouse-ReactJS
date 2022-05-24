@@ -34,7 +34,7 @@ const CartItemsContainer = () => {
                 <div className="mt-5 flex items-center justify-center">
                     <Link to={'/'}><button className="btn btn-outline mx-3">Keep Shopping</button></Link>
                     <button onClick={() => {cart.clear()}} className="btn btn-outline btn-error mx-3">Empty Cart</button>
-                    <button className="btn btn-outline btn-success mx-3">Go to Pay</button>
+                    <Link to={'/checkout'}><button className="btn btn-outline btn-success mx-3">Go to Pay</button></Link>
                 </div>
             </div>
         </>
