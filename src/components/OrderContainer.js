@@ -12,7 +12,7 @@ const OrderContainer = () => {
     const [order, setOrder] = useState([]);
 
     useEffect(() => {
-        loader.stopLoader();
+        loader.runLoader();
         getOrder(id);
     }, [id])    
 
@@ -23,6 +23,7 @@ const OrderContainer = () => {
                 if(res.exists()){
                     const data = res.data();
                     setOrder([{"data": data, "id": id}]);
+                    loader.stopLoader();
                 }else{
                     navigate("/");
                 }
