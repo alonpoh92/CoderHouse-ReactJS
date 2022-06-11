@@ -7,12 +7,12 @@ import { initializeApp } from "firebase/app";
 import LoaderProvider from './context/LoaderProvider';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBREsl1gh4u4Ue5ovRgUCwj9Y24APRf-fk",
-  authDomain: "coderhouse-reactjs-3d926.firebaseapp.com",
-  projectId: "coderhouse-reactjs-3d926",
-  storageBucket: "coderhouse-reactjs-3d926.appspot.com",
-  messagingSenderId: "87018493125",
-  appId: "1:87018493125:web:b66951c3e82bfa3dce4cac"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID
 };
 
 const app = initializeApp(firebaseConfig);
