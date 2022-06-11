@@ -14,23 +14,25 @@ If you click on the button "Show More" you will be moved to then route "item/:id
 
 Using the navbar you can navigate over the differents categories of our products, like:
 
-### Smartphones
-### Laptops
-### Fragrances
-### Skincare
-### Groceries
-### Home Decoration
-### Furniture
-### Tops
-### Womens Dresses
-### Womens Shoes
-### Mens Shirts
-### Mens Shoes
-### Mens Watches
-### Womens Watches
-### Womens Bags
-### Womens Jewellery
-### Sunglasses
-### Automotive
-### Motorcycle
-### Lighting
+- Smartphones
+- Laptops
+- Fragrances
+- Skincare
+- Groceries
+- Home Decoration
+- Furniture
+- Tops
+- Womens Dresses
+- Womens Shoes
+- Mens Shirts
+- Mens Shoes
+- Mens Watches
+- Womens Watches
+- Womens Bags
+- Womens Jewellery
+- Sunglasses
+- Automotive
+- Motorcycle
+- Lighting
+
+You can visit our store [here!!!](https://coder-house-react-js.vercel.app/)

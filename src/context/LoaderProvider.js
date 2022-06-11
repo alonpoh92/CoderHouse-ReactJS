@@ -8,7 +8,7 @@ const LoaderProvider = ({children}) => {
     function stopLoader(){
         setTimeout(() => {
             setLoader(false)
-        }, 1500);
+        }, 0);
     }
 
     function runLoader(){
